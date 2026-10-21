@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Demo de tienda online de cámaras y equipos de seguridad, creada por Orbix Digital.">
+  <title>SecureVision | Tienda de Seguridad</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <div class="topbar">
+    DEMO DE E-COMMERCE · DISEÑADA POR ORBIX DIGITAL
+  </div>
+
+  <header class="header">
+    <a href="#" class="logo">
+      <span class="logo-icon">S</span>
+      <span>Secure<span>Vision</span></span>
+    </a>
+
+    <button class="cart-button" id="open-cart">
+      🛒 Carrito <b id="cart-count">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="tag">SEGURIDAD INTELIGENTE</span>
+
+        <h1>Protege lo que<br>
+          <span>más importa.</span>
+        </h1>
+
+        <p>
+          Descubre cámaras, sistemas de vigilancia y
+          accesorios para tu hogar o negocio.
+        </p>
+
+        <a href="#productos" class="btn-primary">
+          Explorar catálogo ↗
+        </a>
+
+        <div class="hero-note">
+          ✓ Soluciones para hogares y empresas
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-circle"></div>
+        <div class="camera-icon">📹</div>
+        <div class="floating-card">
+          <span class="live-dot"></span>
+          Sistemas de vigilancia
+          <strong>Protección 24/7</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div>
+        <span>🛡️</span>
+        <p><strong>Equipos confiables</strong><small>Soluciones de seguridad</small></p>
+      </div>
+      <div>
+        <span>💬</span>
+        <p><strong>Atención directa</strong><small>Pedidos por WhatsApp</small></p>
+      </div>
+      <div>
+        <span>📦</span>
+        <p><strong>Compra sencilla</strong><small>Desde tu celular</small></p>
+      </div>
+    </section>
+
+    <section class="catalog" id="productos">
+      <div class="section-heading">
+        <div>
+          <span class="tag">NUESTROS PRODUCTOS</span>
+          <h2>Explora el catálogo</h2>
+          <p>Encuentra el equipo ideal para ti.</p>
+        </div>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter active" data-category="todos">Todos</button>
+        <button class="filter" data-category="camaras">Cámaras</button>
+        <button class="filter" data-category="grabadores">DVR / NVR</button>
+        <button class="filter" data-category="kits">Kits</button>
+        <button class="filter" data-category="accesorios">Accesorios</button>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <p>Cargando productos...</p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <span class="tag">¿NECESITAS ASESORÍA?</span>
+        <h2>Encuentra tu solución de seguridad.</h2>
+        <p>Consúltanos para elegir los equipos adecuados.</p>
+      </div>
+
+      <button class="btn-primary" id="contact-whatsapp">
+        Consultar por WhatsApp ↗
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#" class="logo">
+      <span class="logo-icon">S</span>
+      <span>Secure<span>Vision</span></span>
+    </a>
+
+    <p>Proyecto demostrativo creado por Orbix Digital.</p>
+    <p>© <span id="year"></span> SecureVision · Precios de ejemplo.</p>
+  </footer>
+
+  <div class="overlay" id="cart-overlay"></div>
+
+  <aside class="cart-panel" id="cart-panel"
+    aria-hidden="true">
+    <div class="cart-header">
+      <h2>Tu carrito</h2>
+      <button id="close-cart" aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="empty-cart">Tu carrito está vacío.</p>
+    </div>
+
+    <div class="cart-footer">
+  <div class="total-row">
+    <span>Total estimado</span>
+    <strong id="cart-total">RD$ 0</strong>
+  </div>
+
+  <button id="checkout" class="btn-primary full-width">
+    Continuar al pago →
+  </button>
+
+  <p class="cart-disclaimer">
+    Demo: no se realizarán pagos reales.
+  </p>
+    </div>
+  </aside>
+
+  
+  <!-- CHECKOUT DEMOSTRATIVO -->
+  <div class="checkout-overlay" id="checkout-overlay" hidden>
+    <section class="checkout-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-title">
+
+      <div class="checkout-header">
+        <div>
+          <span class="tag">MODO DEMOSTRACIÓN</span>
+          <h2 id="checkout-title">Finalizar pedido</h2>
+        </div>
+
+        <button type="button" id="checkout-close"
+          class="checkout-close" aria-label="Cerrar pago">✕</button>
+      </div>
+
+      <div class="demo-notice">
+        <strong>Pedido de prueba</strong>
+        <p>No se moverá dinero. Los datos bancarios siguientes son ficticios.</p>
+      </div>
+
+      <div class="checkout-summary">
+        <h3>Resumen de tu compra</h3>
+        <div id="checkout-items"></div>
+
+        <div class="total-row checkout-total">
+          <span>Total estimado</span>
+          <strong id="checkout-total">RD$ 0</strong>
+        </div>
+      </div>
+
+      <div class="payment-method">
+        <span class="tag">MÉTODO DE PAGO</span>
+        <div class="payment-option">
+          <span class="bank-icon">▤</span>
+          <div>
+            <strong>Transferencia bancaria</strong>
+            <p>Simulación de pago por transferencia</p>
+          </div>
+          <span class="selected-mark">✓</span>
+        </div>
+      </div>
+
+      <div class="bank-details">
+        <h3>Datos de ejemplo</h3>
+
+        <div class="bank-row">
+          <span>Banco</span>
+          <strong>Banco Demo (ficticio)</strong>
+        </div>
+
+        <div class="bank-row">
+          <span>Beneficiario</span>
+          <strong>SecureVision DEMO</strong>
+        </div>
+
+        <div class="bank-row">
+          <span>Cuenta</span>
+          <strong>NO VÁLIDA · SOLO DEMO</strong>
+        </div>
+
+        <p class="bank-warning">
+          Estos datos no permiten realizar una transferencia.
+          No envíes dinero a ninguna cuenta por esta demostración.
+        </p>
+      </div>
+
+      <button type="button" id="simulate-payment"
+        class="btn-primary full-width">
+        Simular confirmación de pago
+      </button>
+
+      <button type="button" id="checkout-cancel"
+        class="checkout-cancel">
+        Volver al carrito
+      </button>
+
+      <p class="checkout-footnote">
+        La confirmación es ficticia y no acredita ningún pago real.
+      </p>
+
+      <div id="demo-receipt" class="demo-receipt" hidden
+        aria-live="polite">
+        <div class="receipt-icon">✓</div>
+        <h3>¡Pedido de prueba completado!</h3>
+        <p id="receipt-number"></p>
+        <p>Estado: demostración completada. No se recibió dinero.</p>
+        <button type="button" id="finish-demo"
+          class="btn-primary full-width">
+          Volver a la tienda
+        </button>
+      </div>
+
+    </section>
+  </div>
+
+  
+</body>
+</html>
